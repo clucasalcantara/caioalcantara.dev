@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'Bio Sans';
+  src: url('../fonts/BioSans-Light.eot');
+  src: url('../fonts/BioSans-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BioSans-Light.woff2') format('woff2'),
+    url('../fonts/BioSans-Light.woff') format('woff'),
+    url('../fonts/BioSans-Light.ttf') format('truetype'),
+    url('../fonts/BioSans-Light.svg#BioSans-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bio Sans';
+  src: url('../fonts/BioSans-ExtraBold.eot');
+  src: url('../fonts/BioSans-ExtraBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BioSans-ExtraBold.woff2') format('woff2'),
+    url('../fonts/BioSans-ExtraBold.woff') format('woff'),
+    url('../fonts/BioSans-ExtraBold.ttf') format('truetype'),
+    url('../fonts/BioSans-ExtraBold.svg#BioSans-ExtraBold') format('svg');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bio Sans';
+  src: url('../fonts/BioSans-Italic.eot');
+  src: url('../fonts/BioSans-Italic.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BioSans-Italic.woff2') format('woff2'),
+    url('../fonts/BioSans-Italic.woff') format('woff'),
+    url('../fonts/BioSans-Italic.ttf') format('truetype'),
+    url('../fonts/BioSans-Italic.svg#BioSans-Italic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bio Sans';
+  src: url('../fonts/BioSans-Bold.eot');
+  src: url('../fonts/BioSans-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BioSans-Bold.woff2') format('woff2'),
+    url('../fonts/BioSans-Bold.woff') format('woff'),
+    url('../fonts/BioSans-Bold.ttf') format('truetype'),
+    url('../fonts/BioSans-Bold.svg#BioSans-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bio Sans';
+  src: url('../fonts/BioSans-SemiBold.eot');
+  src: url('../fonts/BioSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BioSans-SemiBold.woff2') format('woff2'),
+    url('../fonts/BioSans-SemiBold.woff') format('woff'),
+    url('../fonts/BioSans-SemiBold.ttf') format('truetype'),
+    url('../fonts/BioSans-SemiBold.svg#BioSans-SemiBold') format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bio Sans';
+  src: url('../fonts/BioSans-Regular.eot');
+  src: url('../fonts/BioSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/BioSans-Regular.woff2') format('woff2'),
+    url('../fonts/BioSans-Regular.woff') format('woff'),
+    url('../fonts/BioSans-Regular.ttf') format('truetype'),
+    url('../fonts/BioSans-Regular.svg#BioSans-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
