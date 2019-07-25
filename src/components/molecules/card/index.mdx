@@ -1,0 +1,22 @@
+---
+name: Card
+menu: Molecules
+---
+
+import { Playground, PropsTable } from 'docz'
+import Card from './'
+
+# Card component
+
+## Basic usage
+
+<Playground>
+  <Card
+    data={{ title: 'Oi', categories: ['dev-web', 'teste', '123'] }}
+    palette={{ main: '#2D2D2D', gray: '#222' }}
+  />
+</Playground>
+
+## Properties
+
+<PropsTable of={Card} />
