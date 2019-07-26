@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-const Wrapper = styled.article(({ theme }) => ({
+const Wrapper = styled.article(({ theme, darkMode }) => ({
   padding: '5rem',
-  color: theme.colors.yellow,
+  color: darkMode ? theme.colors.yellow : theme.colors.dark,
   display: 'block',
   ':before': {
     content: '"LATEST POST"',
@@ -27,13 +27,14 @@ const Description = styled.p({
   marginTop: '1em'
 })
 
-const PostWall = ({ data, theme }) => {
+const PostWall = ({ data, theme, darkMode }) => {
+  console.log(darkMode)
   const latest = data[0]
   console.log(latest)
 
   return (
-    <Wrapper theme={theme}>
-      <div class="post-date">
+    <Wrapper theme={theme} darkMode={darkMode}>
+      <div className="post-date">
         <strong>15</strong> Mar
       </div>
       <Title>
@@ -46,7 +47,7 @@ const PostWall = ({ data, theme }) => {
           🚀
         </span>
       </Description>
-      <a href="#" class="post-readmore">
+      <a href="#" className="post-readmore">
         READ MORE
       </a>
     </Wrapper>

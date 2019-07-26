@@ -65,7 +65,7 @@ const Page = ({ children, theme, config, getParticles }) => {
           justifyContent: 'center',
           alignItems: 'center'
         }}
-        params={getParticles(theme)}
+        params={getParticles(theme, darkMode)}
       />
       <Global
         styles={css`
@@ -103,22 +103,22 @@ const Page = ({ children, theme, config, getParticles }) => {
 
           .react-toggle:hover {
             border-radius: 30px;
-            background-color: ${theme.colors.active};
+            background-color: ${theme.colors.active} !important;
           }
 
           .react-toggle-track {
             border: 2px solid #26282e;
-            background-color: ${theme.colors.active};
+            background-color: ${theme.colors.active} !important;
           }
 
           .react-toggle--checked:hover {
             border-radius: 30px;
-            background-color: ${theme.colors.inactive};
+            background-color: ${theme.colors.inactive} !important;
           }
 
           .react-toggle--checked .react-toggle-track {
             border-radius: 30px;
-            background-color: ${theme.colors.inactive};
+            background-color: ${theme.colors.inactive} !important;
           }
         `}
       />
