@@ -1,18 +1,20 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-const Wrapper = styled.article({
+const Wrapper = styled.article(({ theme }) => ({
+  padding: '5rem',
+  color: theme.colors.yellow,
   display: 'block',
   ':before': {
     content: '"LATEST POST"',
     textTransform: 'uppercase',
     position: 'absolute',
     transform: 'rotate(90deg)',
-    left: '-100px',
-    top: '85px',
+    left: '28rem',
+    top: '8rem',
     letterSpacing: '4px'
   }
-})
+}))
 
 const Title = styled.h2({
   fontSize: '2em',
@@ -21,15 +23,16 @@ const Title = styled.h2({
 
 const Description = styled.p({
   display: 'block',
-  marginBottom: '1em'
+  marginBottom: '1em',
+  marginTop: '1em'
 })
 
-const PostWall = ({ data }) => {
+const PostWall = ({ data, theme }) => {
   const latest = data[0]
   console.log(latest)
 
   return (
-    <Wrapper>
+    <Wrapper theme={theme}>
       <div class="post-date">
         <strong>15</strong> Mar
       </div>
