@@ -60,7 +60,7 @@ const initialState = {
       inactive: '#26282E'
     }
   },
-  getParticles: theme => ({
+  getParticles: (theme, darkMode) => ({
     particles: {
       number: {
         value: 120,
@@ -70,13 +70,13 @@ const initialState = {
         }
       },
       color: {
-        value: theme.colors.yellow
+        value: darkMode ? theme.colors.yellow : theme.colors.dark
       },
       shape: {
         type: 'star',
         stroke: {
           width: 0.07,
-          color: theme.colors.light
+          color: darkMode ? theme.colors.light : theme.colors.dark
         },
         polygon: {
           nb_sides: 2
@@ -105,7 +105,7 @@ const initialState = {
       line_linked: {
         enable: true,
         distance: 128.27296486924183,
-        color: theme.colors.yellow,
+        color: darkMode ? theme.colors.yellow : theme.colors.dark,
         opacity: 0.2,
         width: 1
       },
