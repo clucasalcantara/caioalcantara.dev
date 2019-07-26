@@ -23,9 +23,18 @@ const Title = styled.h2({
 
 const Description = styled.p({
   display: 'block',
-  marginBottom: '1em',
+  marginBottom: '2em',
   marginTop: '1em'
 })
+
+const ReadMore = styled.a(({ theme, darkMode }) => ({
+  fontWeight: 'bold',
+  marginBottom: '2em',
+  marginTop: '1em',
+  fontSize: '1.3em',
+  textDecoration: 'none',
+  color: darkMode ? theme.colors.yellow : theme.colors.dark
+}))
 
 const PostWall = ({ data, theme, darkMode }) => {
   console.log(darkMode)
@@ -47,9 +56,9 @@ const PostWall = ({ data, theme, darkMode }) => {
           🚀
         </span>
       </Description>
-      <a href="#" className="post-readmore">
+      <ReadMore theme={theme} darkMode={darkMode} href="#">
         READ MORE
-      </a>
+      </ReadMore>
     </Wrapper>
   )
 }
