@@ -2,13 +2,13 @@ import React from 'react'
 import styled from '@emotion/styled'
 // UI Elements
 import { Logo } from 'components/atoms'
-import Navigation from './navigation'
-import SocialElements from './social-elements'
-import DarkMode from './dark-mode'
+import Navigation from '../navigation'
+import SocialElements from '../social-elements'
+import DarkMode from '../dark-mode'
 
 const Wrapper = styled.aside(
   ({ theme: { colors } }) => `
-  width: 30em;
+  width: 29em;
 	min-height: 100%;
 	padding: 5em;
 	position: fixed;

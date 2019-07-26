@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // UI Elements
 import { Page } from 'components/layout'
-import { CardList } from 'components/organisms'
+import { PostWall } from 'components/organisms'
 // Services
 import { getMediumFeed } from 'services'
 
@@ -14,7 +14,13 @@ const Home = ({ baseContext: { config, theme, getParticles } }) => {
     )
   }, [])
 
-  return <Page theme={theme} config={config} getParticles={getParticles}></Page>
+  console.log(posts)
+
+  return (
+    <Page theme={theme} config={config} getParticles={getParticles}>
+      <PostWall data={posts} />
+    </Page>
+  )
 }
 
 export default Home

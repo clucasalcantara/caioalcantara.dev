@@ -81,7 +81,10 @@ const Page = ({ children, theme, config, getParticles }) => {
           body {
             width: 100%;
             height: 100%;
-            background-color: ${theme.colors.darkBackground};
+            background-color: ${darkMode
+              ? theme.colors.darkBackground
+              : theme.colors.lightBackground};
+            transition: 1s ease;
           }
 
           body {
@@ -100,22 +103,22 @@ const Page = ({ children, theme, config, getParticles }) => {
 
           .react-toggle:hover {
             border-radius: 30px;
-            background-color: ${theme.colors.active} !important;
+            background-color: ${theme.colors.active};
           }
 
           .react-toggle-track {
             border: 2px solid #26282e;
-            background-color: ${theme.colors.active} !important;
+            background-color: ${theme.colors.active};
           }
 
           .react-toggle--checked:hover {
             border-radius: 30px;
-            background-color: ${theme.colors.inactive} !important;
+            background-color: ${theme.colors.inactive};
           }
 
           .react-toggle--checked .react-toggle-track {
             border-radius: 30px;
-            background-color: ${theme.colors.inactive} !important;
+            background-color: ${theme.colors.inactive};
           }
         `}
       />

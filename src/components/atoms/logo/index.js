@@ -7,7 +7,6 @@ import styled from '@emotion/styled'
 
 const Wrapper = styled.a({
   textDecoration: 'none',
-  textAlign: 'center',
   display: 'block'
 })
 
@@ -27,7 +26,8 @@ const Headline = styled.span({
   display: 'block',
   fontWeight: 'bold',
   color: '#26282E',
-  fontSize: '1.7em'
+  fontSize: '1.7em',
+  textAlign: 'start'
 })
 
 const Logo = ({ theme }) => (

@@ -37,13 +37,13 @@ const initialState = {
         path: '#'
       },
       {
-        id: 'instagram',
-        name: 'Instagram',
+        id: 'github',
+        name: 'github',
         path: '#'
       },
       {
-        id: 'github',
-        name: 'github',
+        id: 'instagram',
+        name: 'Instagram',
         path: '#'
       }
     ]
@@ -55,7 +55,7 @@ const initialState = {
       lightBackground: '#F5F5FD',
       light: '#F5F5FD',
       dark: '#26282E',
-      yellow: '#F7DF1E',
+      yellow: '#fff746',
       active: '#F5F5FD',
       inactive: '#26282E'
     }
