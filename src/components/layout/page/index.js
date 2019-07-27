@@ -48,14 +48,71 @@ const Page = ({ children, theme, config, getParticles }) => {
   )
 
   return (
-    <Main>
-      <SideBar
-        theme={theme}
-        config={config}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-      />
-      <Wrapper theme={theme}>{childrenWithInjectedTheme}</Wrapper>
+    <>
+      <Main>
+        <SideBar
+          theme={theme}
+          config={config}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
+        <Wrapper theme={theme}>{childrenWithInjectedTheme}</Wrapper>
+        <Global
+          styles={css`
+            @charset "utf-8";
+
+            *,
+            ::after,
+            ::before {
+              box-sizing: border-box;
+            }
+
+            html,
+            body {
+              width: 100%;
+              height: 100%;
+              background-color: ${darkMode
+                ? theme.colors.darkBackground
+                : theme.colors.lightBackground};
+              transition: 1s ease;
+            }
+
+            body {
+              font-family: ${theme.fontFamily}, sans-serif;
+              text-rendering: optimizeLegibility !important;
+              -webkit-font-smoothing: antialiased !important;
+            }
+
+            ::selection {
+              background: ${theme.colors.yellow}; /* WebKit/Blink Browsers */
+            }
+
+            ::-moz-selection {
+              background: ${theme.colors.yellow}; /* Gecko Browsers */
+            }
+
+            .react-toggle:hover {
+              border-radius: 30px;
+              background-color: ${theme.colors.active} !important;
+            }
+
+            .react-toggle-track {
+              border: 2px solid #26282e;
+              background-color: ${theme.colors.active} !important;
+            }
+
+            .react-toggle--checked:hover {
+              border-radius: 30px;
+              background-color: ${theme.colors.inactive} !important;
+            }
+
+            .react-toggle--checked .react-toggle-track {
+              border-radius: 30px;
+              background-color: ${theme.colors.inactive} !important;
+            }
+          `}
+        />
+      </Main>
       <Particles
         style={{
           pointEvents: 'none',
@@ -69,62 +126,7 @@ const Page = ({ children, theme, config, getParticles }) => {
         }}
         params={getParticles(theme, darkMode)}
       />
-      <Global
-        styles={css`
-          @charset "utf-8";
-
-          *,
-          ::after,
-          ::before {
-            box-sizing: border-box;
-          }
-
-          html,
-          body {
-            width: 100%;
-            height: 100%;
-            background-color: ${darkMode
-              ? theme.colors.darkBackground
-              : theme.colors.lightBackground};
-            transition: 1s ease;
-          }
-
-          body {
-            font-family: ${theme.fontFamily}, sans-serif;
-            text-rendering: optimizeLegibility !important;
-            -webkit-font-smoothing: antialiased !important;
-          }
-
-          ::selection {
-            background: ${theme.colors.yellow}; /* WebKit/Blink Browsers */
-          }
-
-          ::-moz-selection {
-            background: ${theme.colors.yellow}; /* Gecko Browsers */
-          }
-
-          .react-toggle:hover {
-            border-radius: 30px;
-            background-color: ${theme.colors.active} !important;
-          }
-
-          .react-toggle-track {
-            border: 2px solid #26282e;
-            background-color: ${theme.colors.active} !important;
-          }
-
-          .react-toggle--checked:hover {
-            border-radius: 30px;
-            background-color: ${theme.colors.inactive} !important;
-          }
-
-          .react-toggle--checked .react-toggle-track {
-            border-radius: 30px;
-            background-color: ${theme.colors.inactive} !important;
-          }
-        `}
-      />
-    </Main>
+    </>
   )
 }
 
