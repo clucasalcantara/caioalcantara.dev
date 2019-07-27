@@ -8,7 +8,7 @@ import { SideBar } from 'components/molecules'
 const Main = styled.div({
   height: '90vh',
   position: 'relative',
-  zIndex: '1',
+  zIndex: '2',
   paddingLeft: '450px'
 })
 
@@ -58,6 +58,8 @@ const Page = ({ children, theme, config, getParticles }) => {
       <Wrapper theme={theme}>{childrenWithInjectedTheme}</Wrapper>
       <Particles
         style={{
+          pointEvents: 'none',
+          zIndex: 1,
           position: 'absolute',
           top: 0,
           left: 0,
