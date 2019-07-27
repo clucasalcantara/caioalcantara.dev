@@ -6,7 +6,7 @@ const Wrapper = styled.nav({
 })
 
 const NavItem = styled.a(({ active }) => ({
-  fontSize: '1.8em',
+  fontSize: '1.5em',
   textDecoration: 'none',
   color: '#26282E',
   textTransform: 'uppercase',
