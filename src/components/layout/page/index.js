@@ -106,6 +106,10 @@ const Page = ({ children, theme, config, getParticles }) => {
               background-color: ${theme.colors.inactive} !important;
             }
 
+            .react-toggle--checked .react-toggle-thumb {
+              border-color: transparent;
+            }
+
             .react-toggle--checked .react-toggle-track {
               border-radius: 30px;
               background-color: ${theme.colors.inactive} !important;
@@ -115,7 +119,7 @@ const Page = ({ children, theme, config, getParticles }) => {
       </Main>
       <Particles
         style={{
-          pointEvents: 'none',
+          pointerEvents: 'none',
           zIndex: 1,
           position: 'absolute',
           top: 0,
