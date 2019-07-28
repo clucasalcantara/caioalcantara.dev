@@ -1,4 +1,4 @@
-import { About, Home } from 'pages'
+import { About, Home, NotFound } from 'pages'
 
 const routes = [
   {
@@ -10,6 +10,9 @@ const routes = [
     path: '/about',
     exact: true,
     component: About
+  },
+  {
+    component: NotFound
   }
 ]
 
