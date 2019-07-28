@@ -47,7 +47,7 @@ const SideBar = ({ theme, config: { nav, social }, darkMode, setDarkMode }) => {
       />
       <Footer theme={theme} darkMode={darkMode}>
         <DarkMode darkMode={darkMode} setDarkMode={setDarkMode} />
-        <SocialElements accounts={social} />
+        <SocialElements darkMode={darkMode} theme={theme} accounts={social} />
         <Copyright className="copyright">
           © 2019 Todos os direitos reservados
         </Copyright>
