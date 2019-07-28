@@ -14,8 +14,6 @@ const Home = ({ baseContext: { config, theme, getParticles } }) => {
     )
   }, [])
 
-  console.log(posts)
-
   return (
     <Page theme={theme} config={config} getParticles={getParticles}>
       <PostWall data={posts} />

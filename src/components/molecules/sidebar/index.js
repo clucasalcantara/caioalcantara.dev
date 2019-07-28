@@ -32,29 +32,24 @@ const Footer = styled.div(({ darkMode, theme: { colors } }) => ({
   color: darkMode ? colors.dark : colors.light
 }))
 
-const SideBar = ({ theme, config: { nav, social }, darkMode, setDarkMode }) => {
-  console.log('Handler', setDarkMode)
-  console.log('Value', darkMode)
-
-  return (
-    <Wrapper theme={theme} darkMode={darkMode}>
-      <Logo theme={theme} darkMode={darkMode} />
-      <Navigation
-        isMobile={false}
-        navItems={nav}
-        theme={theme}
-        darkMode={darkMode}
-      />
-      <Footer theme={theme} darkMode={darkMode}>
-        <DarkMode darkMode={darkMode} setDarkMode={setDarkMode} />
-        <SocialElements darkMode={darkMode} theme={theme} accounts={social} />
-        <Copyright className="copyright">
-          © 2019 Todos os direitos reservados
-        </Copyright>
-      </Footer>
-    </Wrapper>
-  )
-}
+const SideBar = ({ theme, config: { nav, social }, darkMode, setDarkMode }) => (
+  <Wrapper theme={theme} darkMode={darkMode}>
+    <Logo theme={theme} darkMode={darkMode} />
+    <Navigation
+      isMobile={false}
+      navItems={nav}
+      theme={theme}
+      darkMode={darkMode}
+    />
+    <Footer theme={theme} darkMode={darkMode}>
+      <DarkMode darkMode={darkMode} setDarkMode={setDarkMode} />
+      <SocialElements darkMode={darkMode} theme={theme} accounts={social} />
+      <Copyright className="copyright">
+        © 2019 Todos os direitos reservados
+      </Copyright>
+    </Footer>
+  </Wrapper>
+)
 
 SideBar.propTypes = {}
 
