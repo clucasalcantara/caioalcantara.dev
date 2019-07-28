@@ -11,6 +11,8 @@ const Wrapper = styled.div({
 })
 
 const Latest = styled.article(({ theme, darkMode }) => ({
+  position: 'relative ',
+  height: '20rem',
   padding: '5rem 10rem',
   color: darkMode ? theme.colors.yellow : theme.colors.dark,
   ':before': {
@@ -18,10 +20,10 @@ const Latest = styled.article(({ theme, darkMode }) => ({
     fontWeight: 800,
     content: '"LATEST POST"',
     textTransform: 'uppercase',
-    position: 'fixed',
+    position: 'absolute',
     transform: 'rotate(90deg)',
-    left: '38%',
-    top: '13%',
+    left: 0,
+    top: '50%',
     letterSpacing: '4px'
   }
 }))

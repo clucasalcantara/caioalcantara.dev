@@ -22,7 +22,8 @@ const Wrapper = styled.aside(({ theme: { colors }, darkMode }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  backgroundColor: darkMode ? colors.yellow : colors.dark
+  backgroundColor: darkMode ? colors.yellow : colors.dark,
+  transition: '1s ease'
 }))
 
 const Copyright = styled.span()
