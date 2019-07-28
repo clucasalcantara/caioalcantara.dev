@@ -7,27 +7,27 @@ const initialState = {
       {
         id: 'home-item',
         text: 'HOME',
-        path: '/about'
+        path: '#'
       },
       {
         id: 'about-item',
         text: 'SOBRE MIM',
-        path: '/projects'
+        path: '#'
       },
       {
         id: 'projects-item',
         text: 'PROJETOS',
-        path: '#posts'
+        path: '#'
       },
       {
         id: 'posts-item',
         text: 'Posts',
-        path: '#posts'
+        path: '#'
       },
       {
         id: 'contact-item',
         text: 'Contato',
-        path: '/contato'
+        path: '#'
       }
     ],
     social: [
