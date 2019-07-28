@@ -1,7 +1,13 @@
-import React, { useState, useEffect } from 'react'
+/**
+ * Page Component
+ * @memberof components/layout
+ */
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
 import Particles from 'react-particles-js'
+// Custom Hooks
+import { useWindowWidth } from 'components/hooks'
 // UI Elements
 import { SideBar } from 'components/molecules'
 
@@ -15,34 +21,23 @@ const Main = styled.div({
 const Wrapper = styled.div(({ theme: { fontFamily } }) => ({
   height: '100%',
   flex: 1,
+  display: 'flex',
+  justifyContent: 'center',
   padding: '0 1rem;',
   fontFamily
 }))
 
-const Page = ({ children, theme, config, getParticles }) => {
-  const [width, setWidth] = useState(window.innerWidth)
+function Page({ children, theme, config, getParticles }) {
+  const width = useWindowWidth()
   const [darkMode, setDarkMode] = useState(true)
-
-  useEffect(() => {
-    const windowWidth = window.innerWidth
-    setWidth(windowWidth)
-    const handleResize = () => setWidth(windowWidth)
-    window.addEventListener('resize', handleResize)
-
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
-  const getLayoutProps = () => ({
-    isMobile: width <= 360
-  })
-
+  const isMobile = width <= 320
   const childrenWithInjectedTheme = React.Children.map(children, child =>
     child
       ? React.cloneElement(child, {
           theme,
           darkMode,
           setDarkMode,
-          ...getLayoutProps()
+          isMobile
         })
       : null
   )
@@ -56,7 +51,9 @@ const Page = ({ children, theme, config, getParticles }) => {
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
-        <Wrapper theme={theme}>{childrenWithInjectedTheme}</Wrapper>
+        {!isMobile && (
+          <Wrapper theme={theme}>{childrenWithInjectedTheme}</Wrapper>
+        )}
         <Global
           styles={css`
             @charset "utf-8";
@@ -72,8 +69,8 @@ const Page = ({ children, theme, config, getParticles }) => {
               width: 100%;
               height: 100%;
               background-color: ${darkMode
-                ? theme.colors.darkBackground
-                : theme.colors.lightBackground};
+                ? theme.colors.dark
+                : theme.colors.light};
               transition: 1s ease;
             }
 
@@ -81,6 +78,10 @@ const Page = ({ children, theme, config, getParticles }) => {
               font-family: ${theme.fontFamily}, sans-serif;
               text-rendering: optimizeLegibility !important;
               -webkit-font-smoothing: antialiased !important;
+            }
+
+            strong {
+              font-weight: 800;
             }
 
             ::selection {
@@ -93,17 +94,17 @@ const Page = ({ children, theme, config, getParticles }) => {
 
             .react-toggle:hover {
               border-radius: 30px;
-              background-color: ${theme.colors.active} !important;
+              background-color: ${theme.colors.light} !important;
             }
 
             .react-toggle-track {
               border: 2px solid #26282e;
-              background-color: ${theme.colors.active} !important;
+              background-color: ${theme.colors.light} !important;
             }
 
             .react-toggle--checked:hover {
               border-radius: 30px;
-              background-color: ${theme.colors.inactive} !important;
+              background-color: ${theme.colors.dark} !important;
             }
 
             .react-toggle--checked .react-toggle-thumb {
@@ -112,24 +113,26 @@ const Page = ({ children, theme, config, getParticles }) => {
 
             .react-toggle--checked .react-toggle-track {
               border-radius: 30px;
-              background-color: ${theme.colors.inactive} !important;
+              background-color: ${theme.colors.dark} !important;
             }
           `}
         />
       </Main>
-      <Particles
-        style={{
-          pointerEvents: 'none',
-          zIndex: 1,
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          marginTop: '5em',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-        params={getParticles(theme, darkMode)}
-      />
+      {!isMobile && (
+        <Particles
+          style={{
+            pointerEvents: 'none',
+            zIndex: 1,
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            marginTop: '5em',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+          params={getParticles(theme, darkMode)}
+        />
+      )}
     </>
   )
 }

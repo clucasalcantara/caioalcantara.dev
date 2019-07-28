@@ -1,64 +1,77 @@
+/**
+ * PostWall Component
+ * @memberof components/organisms
+ */
 import React from 'react'
 import styled from '@emotion/styled'
 
-const Wrapper = styled.article(({ theme, darkMode }) => ({
-  padding: '5rem',
+const Wrapper = styled.div({
+  display: 'flex',
+  flexDirection: 'column'
+})
+
+const Latest = styled.article(({ theme, darkMode }) => ({
+  padding: '5rem 10rem',
   color: darkMode ? theme.colors.yellow : theme.colors.dark,
-  display: 'block',
   ':before': {
+    fontSize: '1.1rem',
+    fontWeight: 800,
     content: '"LATEST POST"',
     textTransform: 'uppercase',
-    position: 'absolute',
+    position: 'fixed',
     transform: 'rotate(90deg)',
-    left: '28rem',
-    top: '8rem',
+    left: '38%',
+    top: '13%',
     letterSpacing: '4px'
   }
 }))
 
-const Title = styled.h2({
-  fontSize: '2em',
-  fontWeight: 'bold'
+const PostDate = styled.div({
+  paddingBottom: '1rem',
+  strong: {
+    fontSize: '1.3rem'
+  }
 })
 
-const Description = styled.p({
-  display: 'block',
-  marginBottom: '2em',
-  marginTop: '1em'
+const Title = styled.h2({
+  fontSize: '2em',
+  fontWeight: 'bold',
+  wordWrap: 'break-word',
+  width: '38rem',
+  paddingBottom: '2rem'
 })
 
 const ReadMore = styled.a(({ theme, darkMode }) => ({
   fontWeight: 'bold',
-  marginBottom: '2em',
-  marginTop: '1em',
   fontSize: '1.3em',
   textDecoration: 'none',
-  color: darkMode ? theme.colors.yellow : theme.colors.dark
+  color: darkMode ? theme.colors.yellow : theme.colors.dark,
+  ':hover': {
+    color: darkMode ? theme.colors.light : theme.colors.dark
+  }
 }))
 
-const PostWall = ({ data, theme, darkMode }) => {
-  console.log(darkMode)
-  const latest = data[0]
-  console.log(latest)
+const PostWall = ({ data, theme, darkMode, isMobile }) => {
+  const latest = data[0] || {}
 
   return (
-    <Wrapper theme={theme} darkMode={darkMode}>
-      <div className="post-date">
-        <strong>15</strong> Mar
-      </div>
-      <Title>
-        Como configurar corretamente os pacotes globais do node usando n e zsh
-      </Title>
-      <Description>
-        Eu sofri e encontrei uma solução pro tão famoso command not found após
-        um npm i -g xpto{' '}
-        <span role="img" aria-label="rocket">
-          🚀
-        </span>
-      </Description>
-      <ReadMore theme={theme} darkMode={darkMode} href="#">
-        READ MORE
-      </ReadMore>
+    <Wrapper>
+      <Latest theme={theme} darkMode={darkMode}>
+        {!isMobile && (
+          <>
+            <PostDate>{latest.pubDate}</PostDate>
+            <Title>{latest.title}</Title>
+            <ReadMore
+              theme={theme}
+              darkMode={darkMode}
+              href={latest.link}
+              target="_blank"
+            >
+              READ MORE
+            </ReadMore>
+          </>
+        )}
+      </Latest>
     </Wrapper>
   )
 }

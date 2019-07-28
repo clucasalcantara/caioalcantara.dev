@@ -51,13 +51,10 @@ const initialState = {
   theme: {
     fontFamily: 'Bio Sans',
     colors: {
-      darkBackground: '#26282E',
-      lightBackground: '#F5F5FD',
       light: '#F5F5FD',
       dark: '#26282E',
-      yellow: '#fff746',
-      active: '#F5F5FD',
-      inactive: '#26282E'
+      black: '#151619',
+      yellow: '#FFF746'
     }
   },
   getParticles: (theme, darkMode) => ({

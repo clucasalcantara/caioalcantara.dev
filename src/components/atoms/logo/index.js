@@ -10,33 +10,35 @@ const Wrapper = styled.a({
   display: 'block'
 })
 
-const H1 = styled.h1(({ theme }) => ({
+const H1 = styled.h1(({ theme: { colors }, darkMode }) => ({
   textAlign: 'left',
   fontSize: '2.2em',
   lineHeight: '1.2',
   fontWeight: '800',
   padding: '.6em .8em',
   display: 'inline-block',
-  backgroundColor: '#26282E',
-  color: theme.colors.yellow
+  backgroundColor: darkMode ? colors.dark : colors.light,
+  color: darkMode ? colors.yellow : colors.dark
 }))
 
-const Headline = styled.span({
+const Headline = styled.span(({ theme: { colors }, darkMode }) => ({
   marginTop: '.2em',
   display: 'block',
   fontWeight: 'bold',
-  color: '#26282E',
+  color: darkMode ? colors.dark : colors.light,
   fontSize: '1.7em',
   textAlign: 'start'
-})
+}))
 
-const Logo = ({ theme }) => (
+const Logo = ({ theme, darkMode }) => (
   <Wrapper>
-    <H1 theme={theme}>
+    <H1 theme={theme} darkMode={darkMode}>
       CAIO <br />
       ALCANTARA ▋
     </H1>
-    <Headline>SOFTWARE ENGINEER</Headline>
+    <Headline darkMode={darkMode} theme={theme}>
+      SOFTWARE ENGINEER
+    </Headline>
   </Wrapper>
 )
 
