@@ -19,9 +19,9 @@ yarn start
 To create a production build:
 
 ```sh
-yarn build-prod
+yarn build
 ```
 
 ## Running
 
-Open the file `dist/index.html` in your browser
+Open the file `build/index.html` in your browser
