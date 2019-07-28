@@ -18,7 +18,8 @@ const H1 = styled.h1(({ theme: { colors }, darkMode }) => ({
   padding: '.6em .8em',
   display: 'inline-block',
   backgroundColor: darkMode ? colors.dark : colors.light,
-  color: darkMode ? colors.yellow : colors.dark
+  color: darkMode ? colors.yellow : colors.dark,
+  transition: '1s ease'
 }))
 
 const Headline = styled.span(({ theme: { colors }, darkMode }) => ({

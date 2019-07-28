@@ -12,6 +12,7 @@ const routes = [
     component: About
   },
   {
+    exact: true,
     component: NotFound
   }
 ]
