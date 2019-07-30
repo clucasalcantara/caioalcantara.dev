@@ -18,7 +18,7 @@ const NavItem = styled.a(
     color: darkMode ? colors.dark : colors.light,
     textTransform: 'uppercase',
     display: 'block',
-    marginBottom: '.5em',
+    marginBottom: '.65em',
     '::after': {
       marginLeft: '.2rem',
       content: active ? afterContent : '""'

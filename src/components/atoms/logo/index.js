@@ -10,9 +10,9 @@ const Wrapper = styled.a({
   display: 'block'
 })
 
-const H1 = styled.h1(({ theme: { colors }, darkMode }) => ({
+const H1 = styled.h1(({ theme: { colors }, darkMode, isMobile }) => ({
   textAlign: 'left',
-  fontSize: '2.2em',
+  fontSize: isMobile ? '2em' : '2.3em',
   lineHeight: '1.2',
   fontWeight: '800',
   padding: '.6em .8em',
@@ -22,22 +22,22 @@ const H1 = styled.h1(({ theme: { colors }, darkMode }) => ({
   transition: '1s ease'
 }))
 
-const Headline = styled.span(({ theme: { colors }, darkMode }) => ({
+const Headline = styled.span(({ theme: { colors }, darkMode, isMobile }) => ({
   marginTop: '.2em',
   display: 'block',
   fontWeight: 'bold',
   color: darkMode ? colors.dark : colors.light,
-  fontSize: '1.7em',
+  fontSize: isMobile ? '1.65em' : '1.9em',
   textAlign: 'start'
 }))
 
-const Logo = ({ theme, darkMode }) => (
+const Logo = ({ theme, darkMode, isMobile }) => (
   <Wrapper>
-    <H1 theme={theme} darkMode={darkMode}>
+    <H1 theme={theme} darkMode={darkMode} isMobile={isMobile}>
       CAIO <br />
       ALCANTARA ▋
     </H1>
-    <Headline darkMode={darkMode} theme={theme}>
+    <Headline darkMode={darkMode} theme={theme} isMobile={isMobile}>
       SOFTWARE ENGINEER
     </Headline>
   </Wrapper>

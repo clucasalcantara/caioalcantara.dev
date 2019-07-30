@@ -10,10 +10,10 @@ import Navigation from '../navigation'
 import SocialElements from '../social-elements'
 import DarkMode from '../dark-mode'
 
-const Wrapper = styled.aside(({ theme: { colors }, darkMode }) => ({
-  width: '29em',
+const Wrapper = styled.aside(({ theme: { colors }, darkMode, isMobile }) => ({
+  minWidth: '25em',
   minHeight: '100%',
-  padding: '5em',
+  padding: isMobile ? '2em' : '5em',
   position: 'fixed',
   top: '0',
   left: '0',
@@ -26,17 +26,27 @@ const Wrapper = styled.aside(({ theme: { colors }, darkMode }) => ({
   transition: '1s ease'
 }))
 
-const Copyright = styled.span()
+const Copyright = styled.span({
+  position: 'absolute',
+  bottom: '1.5em',
+  paddingLeft: '.5em'
+})
 
 const Footer = styled.div(({ darkMode, theme: { colors } }) => ({
   color: darkMode ? colors.dark : colors.light
 }))
 
-const SideBar = ({ theme, config: { nav, social }, darkMode, setDarkMode }) => (
-  <Wrapper theme={theme} darkMode={darkMode}>
-    <Logo theme={theme} darkMode={darkMode} />
+const SideBar = ({
+  theme,
+  config: { nav, social },
+  darkMode,
+  setDarkMode,
+  isMobile
+}) => (
+  <Wrapper theme={theme} darkMode={darkMode} isMobile={isMobile}>
+    <Logo theme={theme} darkMode={darkMode} isMobile={isMobile} />
     <Navigation
-      isMobile={false}
+      isMobile={isMobile}
       navItems={nav}
       theme={theme}
       darkMode={darkMode}
