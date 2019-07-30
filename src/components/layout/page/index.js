@@ -12,7 +12,6 @@ import { useWindowWidth } from 'components/hooks'
 import { SideBar } from 'components/molecules'
 
 const Main = styled.div({
-  height: '90vh',
   position: 'relative',
   zIndex: '2',
   paddingLeft: '450px'
@@ -30,7 +29,7 @@ const Wrapper = styled.div(({ theme: { fontFamily } }) => ({
 function Page({ children, theme, config, getParticles }) {
   const width = useWindowWidth()
   const [darkMode, setDarkMode] = useState(true)
-  const isMobile = width <= 320
+  const isMobile = width <= 420
   const childrenWithInjectedTheme = React.Children.map(children, child =>
     child
       ? React.cloneElement(child, {
@@ -46,6 +45,7 @@ function Page({ children, theme, config, getParticles }) {
     <>
       <Main>
         <SideBar
+          isMobile={isMobile}
           theme={theme}
           config={config}
           darkMode={darkMode}
@@ -121,14 +121,13 @@ function Page({ children, theme, config, getParticles }) {
       {!isMobile && (
         <Particles
           style={{
-            pointerEvents: 'none',
-            zIndex: 1,
             position: 'absolute',
+            justifyContent: 'center',
+            alignItems: 'center',
             top: 0,
             left: 0,
-            marginTop: '5em',
-            justifyContent: 'center',
-            alignItems: 'center'
+            zIndex: 1,
+            pointerEvents: 'none'
           }}
           params={getParticles(theme, darkMode)}
         />
