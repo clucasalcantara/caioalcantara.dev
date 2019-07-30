@@ -4,15 +4,17 @@
  */
 import React from 'react'
 import styled from '@emotion/styled'
+// UI Elements
+import { Post } from 'components/molecules'
 
 const Wrapper = styled.div({
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  alignItems: 'center'
 })
 
-const Latest = styled.article(({ theme, darkMode }) => ({
+const Latest = styled.article(({ darkMode, theme }) => ({
   position: 'relative ',
-  height: '20rem',
   padding: '5rem 10rem',
   color: darkMode ? theme.colors.yellow : theme.colors.dark,
   ':before': {
@@ -28,52 +30,37 @@ const Latest = styled.article(({ theme, darkMode }) => ({
   }
 }))
 
-const PostDate = styled.div({
-  paddingBottom: '1rem',
-  strong: {
-    fontSize: '1.3rem'
-  }
-})
-
-const Title = styled.h2({
-  fontSize: '2em',
-  fontWeight: 'bold',
-  wordWrap: 'break-word',
-  width: '38rem',
-  paddingBottom: '2rem'
-})
-
-const ReadMore = styled.a(({ theme, darkMode }) => ({
-  fontWeight: 'bold',
-  fontSize: '1.3em',
-  textDecoration: 'none',
+const Posts = styled.div(({ darkMode, theme }) => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  width: '100%',
   color: darkMode ? theme.colors.yellow : theme.colors.dark,
-  ':hover': {
-    color: darkMode ? theme.colors.light : theme.colors.dark
-  }
+  padding: '3em'
 }))
 
 const PostWall = ({ data, theme, darkMode, isMobile }) => {
   const latest = data[0] || {}
+  const posts = data.slice(1)
 
   return (
     <Wrapper>
-      <Latest theme={theme} darkMode={darkMode}>
-        {!isMobile && (
-          <>
-            <PostDate>{latest.pubDate}</PostDate>
-            <Title>{latest.title}</Title>
-            <ReadMore
-              theme={theme}
-              darkMode={darkMode}
-              href={latest.link}
-              target="_blank"
-            >
-              READ MORE
-            </ReadMore>
-          </>
-        )}
-      </Latest>
+      {!isMobile && (
+        <>
+          <Latest theme={theme} darkMode={darkMode}>
+            <Post data={latest} theme={theme} darkMode={darkMode} latest />
+          </Latest>
+          <Posts theme={theme} darkMode={darkMode}>
+            {posts.map(post => (
+              <Post
+                data={post}
+                key={post.guid}
+                theme={theme}
+                darkMode={darkMode}
+              />
+            ))}
+          </Posts>
+        </>
+      )}
     </Wrapper>
   )
 }
