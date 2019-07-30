@@ -18,7 +18,8 @@ const SocialElements = ({ accounts, theme, darkMode }) => (
   <Wrapper>
     {accounts.map(account => (
       <SocialElement
-        href="#"
+        href={account.path}
+        target="_blank"
         key={account.id}
         darkMode={darkMode}
         theme={theme}
