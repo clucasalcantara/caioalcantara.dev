@@ -34,17 +34,17 @@ const initialState = {
       {
         id: 'linkedin',
         name: 'LinkedIn',
-        path: '#'
+        path: 'https://linkedin.com/in/clucasalcantara/'
       },
       {
         id: 'github',
         name: 'github',
-        path: '#'
+        path: 'https://github.com/clucasalcantara'
       },
       {
         id: 'instagram',
         name: 'Instagram',
-        path: '#'
+        path: 'https://instagram.com/clucasalcantara/'
       }
     ]
   },
