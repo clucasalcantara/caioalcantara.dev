@@ -32,6 +32,7 @@ const Latest = styled.article(({ darkMode, theme }) => ({
 
 const Posts = styled.div(({ darkMode, theme }) => ({
   display: 'flex',
+  justifyContent: 'center',
   flexWrap: 'wrap',
   width: '100%',
   color: darkMode ? theme.colors.yellow : theme.colors.dark,
