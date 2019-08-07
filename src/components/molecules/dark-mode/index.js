@@ -8,7 +8,7 @@ import 'react-toggle/style.css'
 
 const DarkMode = styled.div({
   display: 'flex',
-  marginBottom: '1em',
+  marginBottom: '1rem',
   alignItems: 'center',
   background: 'transparent'
 })

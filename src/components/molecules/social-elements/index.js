@@ -7,12 +7,12 @@ import styled from '@emotion/styled'
 import ReactSVG from 'react-svg'
 
 const Wrapper = styled.div({
-  marginBottom: '.5em',
+  marginBottom: '.5rem',
   display: 'flex'
 })
 
 const SocialElement = styled.a(({ theme: { colors }, darkMode }) => ({
-  padding: '.5em',
+  padding: '.5rem',
   svg: {
     fill: darkMode ? colors.dark : colors.light
   }

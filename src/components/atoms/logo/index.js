@@ -12,10 +12,10 @@ const Wrapper = styled.a({
 
 const H1 = styled.h1(({ theme: { colors }, darkMode, isMobile }) => ({
   textAlign: 'left',
-  fontSize: isMobile ? '2em' : '2.3em',
+  fontSize: isMobile ? '2rem' : '2.3rem',
   lineHeight: '1.2',
   fontWeight: '800',
-  padding: '.6em .8em',
+  padding: '.6em .8rem',
   display: 'inline-block',
   backgroundColor: darkMode ? colors.dark : colors.light,
   color: darkMode ? colors.yellow : colors.dark,
@@ -23,11 +23,11 @@ const H1 = styled.h1(({ theme: { colors }, darkMode, isMobile }) => ({
 }))
 
 const Headline = styled.span(({ theme: { colors }, darkMode, isMobile }) => ({
-  marginTop: '.2em',
+  marginTop: '.2rem',
   display: 'block',
   fontWeight: 'bold',
   color: darkMode ? colors.dark : colors.light,
-  fontSize: isMobile ? '1.65em' : '1.9em',
+  fontSize: isMobile ? '1.65rem' : '1.9rem',
   textAlign: 'start'
 }))
 

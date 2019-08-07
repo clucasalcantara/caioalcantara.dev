@@ -5,27 +5,27 @@ const initialState = {
     subtitle: 'Software Engineer',
     nav: [
       {
-        id: 'home-item',
+        id: 'home-itrem',
         text: 'HOME',
         path: '/'
       },
       {
-        id: 'about-item',
+        id: 'about-itrem',
         text: 'SOBRE MIM',
         path: '/about'
       },
       {
-        id: 'projects-item',
+        id: 'projects-itrem',
         text: 'PROJETOS',
         path: '#'
       },
       {
-        id: 'posts-item',
+        id: 'posts-itrem',
         text: 'Posts',
         path: '#'
       },
       {
-        id: 'contact-item',
+        id: 'contact-itrem',
         text: 'Contato',
         path: '#'
       }

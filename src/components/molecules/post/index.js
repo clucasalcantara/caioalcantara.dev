@@ -3,8 +3,8 @@ import styled from '@emotion/styled'
 import dayjs from 'dayjs'
 
 const Wrapper = styled.div({
-  margin: '.5em',
-  padding: '1em'
+  margin: '.5rem',
+  padding: '1rem'
 })
 
 const PostDate = styled.div({
@@ -15,7 +15,7 @@ const PostDate = styled.div({
 })
 
 const Title = styled.h2(({ latest }) => ({
-  fontSize: '2em',
+  fontSize: '2rem',
   fontWeight: 'bold',
   wordWrap: 'break-word',
   width: latest ? '38rem' : '30rem',
@@ -24,7 +24,7 @@ const Title = styled.h2(({ latest }) => ({
 
 const ReadMore = styled.a(({ theme, darkMode }) => ({
   fontWeight: 'bold',
-  fontSize: '1.3em',
+  fontSize: '1.3rem',
   textDecoration: 'none',
   color: darkMode ? theme.colors.yellow : theme.colors.dark,
   ':hover': {

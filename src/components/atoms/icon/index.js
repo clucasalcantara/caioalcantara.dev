@@ -10,7 +10,7 @@ const Icon = styled.div({
 
 export default ({
   iconName,
-  size = '1em',
+  size = '1rem',
   handleClick = () => console.log('Clicked')
 }) => {
   const IconComponent = Ionicons[iconName]

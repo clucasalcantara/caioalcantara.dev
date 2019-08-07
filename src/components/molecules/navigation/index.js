@@ -14,12 +14,12 @@ const Wrapper = styled.nav({
 })
 
 const NavItem = styled(NavLink)(({ color, after }) => ({
-  fontSize: '1.2em',
+  fontSize: '1.2rem',
   textDecoration: 'none',
   color,
   textTransform: 'uppercase',
   display: 'block',
-  marginBottom: '.65em',
+  marginBottom: '.65rem',
   '::after': {
     marginLeft: '.2rem',
     content: after

@@ -11,9 +11,9 @@ import SocialElements from '../social-elements'
 import DarkMode from '../dark-mode'
 
 const Wrapper = styled.aside(({ theme: { colors }, darkMode, isMobile }) => ({
-  minWidth: '25em',
+  minWidth: '25rem',
   minHeight: '100%',
-  padding: isMobile ? '2em' : '5em',
+  padding: isMobile ? '2rem' : '5rem',
   position: 'fixed',
   top: '0',
   left: '0',
@@ -28,8 +28,8 @@ const Wrapper = styled.aside(({ theme: { colors }, darkMode, isMobile }) => ({
 
 const Copyright = styled.span({
   position: 'absolute',
-  bottom: '1.5em',
-  paddingLeft: '.5em'
+  bottom: '1.5rem',
+  paddingLeft: '.5rem'
 })
 
 const Footer = styled.div(({ darkMode, theme: { colors } }) => ({

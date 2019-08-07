@@ -36,7 +36,7 @@ const Posts = styled.div(({ darkMode, theme }) => ({
   flexWrap: 'wrap',
   width: '100%',
   color: darkMode ? theme.colors.yellow : theme.colors.dark,
-  padding: '3em'
+  padding: '3rem'
 }))
 
 const PostWall = ({ data, theme, darkMode, isMobile }) => {
