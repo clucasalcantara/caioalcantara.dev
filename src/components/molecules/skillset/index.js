@@ -51,7 +51,7 @@ const SKILLS = [
   {
     id: 9,
     skill: 'DevOps (CI/CD, Docker, Jenkins, Rancher)',
-    level: '99%'
+    level: '60%'
   }
 ]
 
