@@ -7,12 +7,12 @@ const initialState = {
       {
         id: 'home-item',
         text: 'HOME',
-        path: '#'
+        path: '/'
       },
       {
         id: 'about-item',
         text: 'SOBRE MIM',
-        path: '#'
+        path: '/about'
       },
       {
         id: 'projects-item',

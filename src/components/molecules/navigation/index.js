@@ -3,6 +3,8 @@
  * @memberof components/molecules
  */
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import styled from '@emotion/styled'
 // Helpers
 import ReactInterval from 'react-interval'
@@ -11,23 +13,42 @@ const Wrapper = styled.nav({
   display: 'block'
 })
 
-const NavItem = styled.a(
-  ({ active, darkMode, theme: { colors }, afterContent }) => ({
-    fontSize: '1.2em',
-    textDecoration: 'none',
-    color: darkMode ? colors.dark : colors.light,
-    textTransform: 'uppercase',
-    display: 'block',
-    marginBottom: '.65em',
-    '::after': {
-      marginLeft: '.2rem',
-      content: active ? afterContent : '""'
-    }
-  })
-)
+const NavItem = styled(NavLink)(({ color, after }) => ({
+  fontSize: '1.2em',
+  textDecoration: 'none',
+  color,
+  textTransform: 'uppercase',
+  display: 'block',
+  marginBottom: '.65em',
+  '::after': {
+    marginLeft: '.2rem',
+    content: after
+  }
+}))
 
-const Navigation = ({ active = 0, navItems, darkMode, theme }) => {
-  const [activeItem, setActiveItem] = useState(active)
+const getNavItem = ({
+  id,
+  path,
+  text,
+  afterContent,
+  theme: { colors },
+  darkMode,
+  activeItem
+}) => {
+  const color = darkMode ? colors.dark : colors.light
+  const after = path === activeItem ? afterContent : '""'
+
+  const Nav = (
+    <NavItem after={after} color={color} key={id} to={path}>
+      {text}
+    </NavItem>
+  )
+
+  return Nav
+}
+
+const Navigation = ({ navItems, darkMode, theme, location }) => {
+  const activeItem = location.pathname
   const [afterContent, setAfterContent] = useState('"▋"')
 
   return (
@@ -37,21 +58,17 @@ const Navigation = ({ active = 0, navItems, darkMode, theme }) => {
         enabled
         callback={() => setAfterContent(afterContent === '"▋"' ? '"_"' : '"▋"')}
       />
-      {navItems.map(({ id, text, path }, idx) => (
-        <NavItem
-          afterContent={afterContent}
-          theme={theme}
-          darkMode={darkMode}
-          key={id}
-          active={idx === activeItem}
-          href={path}
-          onClick={() => setActiveItem(idx)}
-        >
-          {text}
-        </NavItem>
-      ))}
+      {navItems.map(navItem =>
+        getNavItem({
+          ...navItem,
+          activeItem,
+          darkMode,
+          theme,
+          afterContent
+        })
+      )}
     </Wrapper>
   )
 }
 
-export default Navigation
+export default withRouter(Navigation)
