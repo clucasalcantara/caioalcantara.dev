@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  sample:
+  new-caioalcantara-dev:
     container_name: new.caioalcantara.dev
     build:
       context: .
