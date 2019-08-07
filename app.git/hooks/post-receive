@@ -1,0 +1,2 @@
+#!/bin/shi
+git --work-tree="~/apps/new.caioalcantara.dev/build" --git-dir="~/apps/new.caioalcantara.dev/app.git" checkout -f master

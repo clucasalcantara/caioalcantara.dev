@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 const Hero = styled.div(({ src }) => ({
   backgroundImage: `url("${src}")`,
   backgroundSize: 'cover',
-  backgroundPositionY: -340,
+  backgroundPosition: 'center center',
   backgroundRepeat: 'no-repeat',
   height: '25em',
   width: '100%',
