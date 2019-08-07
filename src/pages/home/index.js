@@ -5,7 +5,9 @@ import { PostWall } from 'components/organisms'
 // Services
 import { getMediumFeed } from 'services'
 
-const Home = ({ baseContext: { config, theme, getParticles } }) => {
+const Home = ({
+  baseContext: { config, theme, getParticles, darkMode, setDarkMode }
+}) => {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
@@ -15,8 +17,14 @@ const Home = ({ baseContext: { config, theme, getParticles } }) => {
   }, [])
 
   return (
-    <Page theme={theme} config={config} getParticles={getParticles}>
-      <PostWall data={posts} />
+    <Page
+      theme={theme}
+      config={config}
+      getParticles={getParticles}
+      setDarkMode={setDarkMode}
+      darkMode={darkMode}
+    >
+      <PostWall data={posts} darkMode={darkMode} />
     </Page>
   )
 }

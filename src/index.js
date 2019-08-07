@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
@@ -12,17 +12,22 @@ import { serviceWorker } from 'services'
 // Store
 import createContext from 'store/create-context'
 
-const baseContext = createContext()
+const App = () => {
+  const [darkMode, setDarkMode] = useState(true)
 
-ReactDOM.render(
-  <BrowserRouter>
-    {renderRoutes(routes, {
-      Provider: baseContext.Provider,
-      Consumer: baseContext.Consumer,
-      baseContext: baseContext._currentValue
-    })}
-  </BrowserRouter>,
-  document.getElementById('root')
-)
+  const baseContext = createContext({ darkMode, setDarkMode })
+
+  return (
+    <BrowserRouter>
+      {renderRoutes(routes, {
+        Provider: baseContext.Provider,
+        Consumer: baseContext.Consumer,
+        baseContext: baseContext._currentValue
+      })}
+    </BrowserRouter>
+  )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
 
 serviceWorker.register()

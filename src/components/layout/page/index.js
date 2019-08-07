@@ -2,7 +2,7 @@
  * Page Component
  * @memberof components/layout
  */
-import React, { useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
 import Particles from 'react-particles-js'
@@ -26,16 +26,20 @@ const Wrapper = styled.div(({ theme: { fontFamily } }) => ({
   fontFamily
 }))
 
-function Page({ children, theme, config, getParticles }) {
+function Page({
+  children,
+  theme,
+  config,
+  getParticles,
+  darkMode,
+  setDarkMode
+}) {
   const width = useWindowWidth()
-  const [darkMode, setDarkMode] = useState(true)
   const isMobile = width <= 420
   const childrenWithInjectedTheme = React.Children.map(children, child =>
     child
       ? React.cloneElement(child, {
           theme,
-          darkMode,
-          setDarkMode,
           isMobile
         })
       : null
