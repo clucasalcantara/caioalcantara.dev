@@ -28,7 +28,7 @@ const SocialElements = ({ accounts, theme, darkMode }) => (
         darkMode={darkMode}
         theme={theme}
       >
-        <ReactSVG src={`img/${account.id}-logo.svg`} />
+        <ReactSVG src={`imgs/${account.id}-logo.svg`} />
       </SocialElement>
     ))}
   </Wrapper>
