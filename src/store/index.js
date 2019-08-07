@@ -54,7 +54,8 @@ const initialState = {
       light: '#F5F5FD',
       dark: '#26282E',
       black: '#151619',
-      yellow: '#FFF746'
+      yellow: '#FFF746',
+      darkYellow: '#FFEF9B'
     }
   },
   getParticles: (theme, darkMode) => ({
