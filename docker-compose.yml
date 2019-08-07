@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  new-caioalcantara-dev:
+    container_name: new.caioalcantara.dev
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '4001:3000'
+    environment:
+      - NODE_ENV=development
