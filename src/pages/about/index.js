@@ -26,30 +26,39 @@ const Content = styled.div(({ width }) => ({
   width
 }))
 
-const Title = styled.h3(({ theme: { colors } }) => ({
+const Title = styled.h3(({ theme: { colors }, darkMode }) => ({
   fontSize: 22,
-  color: colors.yellow,
+  color: darkMode ? colors.yellow : colors.dark,
   fontWeight: 'bold',
   paddingBottom: 20
 }))
 
-const TextBlock = styled.p(({ theme: { colors } }) => ({
-  color: colors.light,
+const TextBlock = styled.p(({ theme: { colors }, darkMode }) => ({
+  color: darkMode ? colors.light : colors.dark,
   lineHeight: 1.5
 }))
 
-const About = ({ baseContext: { config, theme, getParticles } }) => {
+const About = ({ baseContext }) => {
+  const { config, theme, getParticles, setDarkMode, darkMode } = baseContext
   const [shouldExpand, expandSkillBars] = useState(false)
 
   setTimeout(() => expandSkillBars(true), 500)
 
   return (
-    <Page theme={theme} config={config} getParticles={getParticles}>
+    <Page
+      theme={theme}
+      config={config}
+      getParticles={getParticles}
+      setDarkMode={setDarkMode}
+      darkMode={darkMode}
+    >
       <Hero src={`${process.env.PUBLIC_URL}/imgs/wide-hero.jpg`} />
       <Wrapper>
-        <Content width="50%">
-          <Title theme={theme}>SOBRE MIM</Title>
-          <TextBlock theme={theme}>
+        <Content width="50%" darkMode={darkMode}>
+          <Title theme={theme} darkMode={darkMode}>
+            SOBRE MIM
+          </Title>
+          <TextBlock theme={theme} darkMode={darkMode}>
             Olá, Eu sou o Caio e que tal construirmos coisas legais? Sou um
             engenheiro de software com sólidos conhecimentos no desenvolvimento
             de aplicações web e mobile usando JavaScript.
@@ -68,7 +77,11 @@ const About = ({ baseContext: { config, theme, getParticles } }) => {
             tubarões (brancos em geral) e viajar.
           </TextBlock>
         </Content>
-        <SkillSet theme={theme} shouldExpand={shouldExpand} />
+        <SkillSet
+          theme={theme}
+          shouldExpand={shouldExpand}
+          darkMode={darkMode}
+        />
       </Wrapper>
     </Page>
   )
