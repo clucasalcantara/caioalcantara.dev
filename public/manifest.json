@@ -1,5 +1,10 @@
 {
   "name": "Caio Alcantara - Software Engineer",
+  "short_name": "Caio Alcantara - DEV",
+  "theme_color": "#FFF746",
+  "background_color": "#FFF746",
+  "start_url": "/",
+  "display": "minimal-ui",
   "icons": [
     {
       "src": ".img/android-icon-36x36.png",
