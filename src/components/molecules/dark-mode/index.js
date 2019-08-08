@@ -20,6 +20,7 @@ export default ({ darkMode, setDarkMode }) => (
       checked={darkMode}
       icons={false}
       onChange={() => setDarkMode(!darkMode)}
+      onKeyDown={() => setDarkMode(!darkMode)}
     />
     <Icon iconName="IoMdMoon" handleClick={() => setDarkMode(true)} />
   </DarkMode>

@@ -50,7 +50,7 @@ const Post = ({ data, theme, darkMode, latest }) => {
         href={data.link}
         target="_blank"
       >
-        READ MORE
+        READ MORE <span hidden>{`about ${data.title}`}</span>
       </ReadMore>
     </Wrapper>
   )
