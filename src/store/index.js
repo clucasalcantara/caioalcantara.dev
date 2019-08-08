@@ -1,8 +1,12 @@
 const initialState = {
   config: {
     name: 'caioalcantara',
-    title: 'caio alcantara',
-    subtitle: 'Software Engineer',
+    metas: {
+      title: 'Caio Alcantara - Software Engineer',
+      description: 'Personal blog page and website',
+      subtitle: 'Software Engineer',
+      canonical: 'https://new.caioalcantara.dev'
+    },
     nav: [
       {
         id: 'home-itrem',

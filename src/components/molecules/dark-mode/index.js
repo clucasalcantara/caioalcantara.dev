@@ -21,6 +21,7 @@ export default ({ darkMode, setDarkMode }) => (
       icons={false}
       onChange={() => setDarkMode(!darkMode)}
       onKeyDown={() => setDarkMode(!darkMode)}
+      aria-label="dark-mode"
     />
     <Icon iconName="IoMdMoon" handleClick={() => setDarkMode(true)} />
   </DarkMode>
