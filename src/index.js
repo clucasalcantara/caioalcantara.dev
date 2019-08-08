@@ -20,8 +20,6 @@ const App = () => {
   return (
     <BrowserRouter>
       {renderRoutes(routes, {
-        Provider: baseContext.Provider,
-        Consumer: baseContext.Consumer,
         baseContext: baseContext._currentValue
       })}
     </BrowserRouter>

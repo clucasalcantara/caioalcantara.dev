@@ -26,6 +26,17 @@ const Wrapper = styled.div(({ theme: { fontFamily } }) => ({
   fontFamily
 }))
 
+// TODO: Apply extra props one more level down
+// ow switch to context
+const applyExtraProps = (child, { theme, isMobile, darkMode, setDarkMode }) => {
+  return React.cloneElement(child, {
+    theme,
+    isMobile,
+    darkMode,
+    setDarkMode
+  })
+}
+
 function Page({
   children,
   theme,
@@ -38,9 +49,11 @@ function Page({
   const isMobile = width <= 420
   const childrenWithInjectedTheme = React.Children.map(children, child =>
     child
-      ? React.cloneElement(child, {
+      ? applyExtraProps(child, {
           theme,
-          isMobile
+          isMobile,
+          darkMode,
+          setDarkMode
         })
       : null
   )
