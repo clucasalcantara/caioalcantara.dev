@@ -24,7 +24,7 @@ const Home = ({
       setDarkMode={setDarkMode}
       darkMode={darkMode}
     >
-      <PostWall data={posts} darkMode={darkMode} />
+      <PostWall data={posts} />
     </Page>
   )
 }

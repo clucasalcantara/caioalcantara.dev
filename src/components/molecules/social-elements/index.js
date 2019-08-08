@@ -27,6 +27,8 @@ const SocialElements = ({ accounts, theme, darkMode }) => (
         key={account.id}
         darkMode={darkMode}
         theme={theme}
+        aria-label={account.id}
+        rel="noreferrer"
       >
         <ReactSVG src={`imgs/${account.id}-logo.svg`} />
       </SocialElement>

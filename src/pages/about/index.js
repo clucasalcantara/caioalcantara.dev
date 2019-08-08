@@ -14,11 +14,14 @@ const Hero = styled.div(({ src }) => ({
   position: 'fixed'
 }))
 
-const Wrapper = styled.div({
-  position: 'relative',
-  display: 'flex',
-  marginTop: '24rem',
-  padding: '3rem'
+const Wrapper = styled.div(({ theme }) => {
+  console.log(theme)
+  return {
+    position: 'relative',
+    display: 'flex',
+    marginTop: '24rem',
+    padding: '3rem'
+  }
 })
 
 const Content = styled.div(({ width }) => ({
@@ -38,8 +41,9 @@ const TextBlock = styled.p(({ theme: { colors }, darkMode }) => ({
   lineHeight: 1.5
 }))
 
-const About = ({ baseContext }) => {
-  const { config, theme, getParticles, setDarkMode, darkMode } = baseContext
+const About = ({
+  baseContext: { config, theme, getParticles, setDarkMode, darkMode }
+}) => {
   const [shouldExpand, expandSkillBars] = useState(false)
 
   setTimeout(() => expandSkillBars(true), 500)
