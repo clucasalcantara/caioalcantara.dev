@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useMemo } from 'react'
 // UI Elements
 import { Page } from 'components/layout'
 import { PostWall } from 'components/organisms'
@@ -10,7 +10,7 @@ const Home = ({
 }) => {
   const [posts, setPosts] = useState([])
 
-  useEffect(() => {
+  useMemo(() => {
     getMediumFeed('clucasalcantara').then(({ items }) =>
       setPosts(items.filter(post => post.categories.length))
     )
