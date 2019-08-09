@@ -7,6 +7,59 @@ const initialState = {
       subtitle: 'Software Engineer',
       canonical: 'https://new.caioalcantara.dev'
     },
+    skills: [
+      {
+        id: 0,
+        skill: 'JavaScript',
+        level: '99%'
+      },
+      {
+        id: 1,
+        skill: 'NodeJS',
+        level: '80%'
+      },
+      {
+        id: 2,
+        skill: 'Go',
+        level: '60%'
+      },
+      {
+        id: 3,
+        skill: 'React',
+        level: '99%'
+      },
+      {
+        id: 4,
+        skill: 'React Native',
+        level: '99%'
+      },
+      {
+        id: 5,
+        skill: 'Styled Components',
+        level: '90%'
+      },
+
+      {
+        id: 6,
+        skill: 'Microservices',
+        level: '80%'
+      },
+      {
+        id: 7,
+        skill: 'GraphQL',
+        level: '75%'
+      },
+      {
+        id: 8,
+        skill: 'NoSQL',
+        level: '80%'
+      },
+      {
+        id: 9,
+        skill: 'DevOps (CI/CD, Docker, Jenkins, Rancher)',
+        level: '60%'
+      }
+    ],
     nav: [
       {
         id: 'home-itrem',
@@ -62,7 +115,7 @@ const initialState = {
       darkYellow: '#FFEF9B'
     }
   },
-  getParticles: (theme, darkMode) => ({
+  getParticlesConfig: (theme, darkMode) => ({
     particles: {
       number: {
         value: 120,

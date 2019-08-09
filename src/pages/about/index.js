@@ -14,14 +14,11 @@ const Hero = styled.div(({ src }) => ({
   position: 'fixed'
 }))
 
-const Wrapper = styled.div(({ theme }) => {
-  console.log(theme)
-  return {
-    position: 'relative',
-    display: 'flex',
-    marginTop: '24rem',
-    padding: '3rem'
-  }
+const Wrapper = styled.div({
+  position: 'relative',
+  display: 'flex',
+  marginTop: '24rem',
+  padding: '3rem'
 })
 
 const Content = styled.div(({ width }) => ({
@@ -41,53 +38,50 @@ const TextBlock = styled.p(({ theme: { colors }, darkMode }) => ({
   lineHeight: 1.5
 }))
 
-const About = ({
-  baseContext: { config, theme, getParticles, setDarkMode, darkMode }
-}) => {
+const About = ({ AppContext }) => {
   const [shouldExpand, expandSkillBars] = useState(false)
 
   setTimeout(() => expandSkillBars(true), 500)
 
   return (
-    <Page
-      theme={theme}
-      config={config}
-      getParticles={getParticles}
-      setDarkMode={setDarkMode}
-      darkMode={darkMode}
-    >
-      <Hero src={`${process.env.PUBLIC_URL}/imgs/wide-hero.jpg`} />
-      <Wrapper>
-        <Content width="50%" darkMode={darkMode}>
-          <Title theme={theme} darkMode={darkMode}>
-            SOBRE MIM
-          </Title>
-          <TextBlock theme={theme} darkMode={darkMode}>
-            Olá, Eu sou o Caio e que tal construirmos coisas legais? Sou um
-            engenheiro de software com sólidos conhecimentos no desenvolvimento
-            de aplicações web e mobile usando JavaScript.
-            <br />
-            <br />
-            Também tenho experiência na utilização tanto do paradigma de
-            orientação a objetos tanto quanto funcional, atuo também na
-            modelagem de databases relacionais e não relacionais além de
-            projetos de arquitetura da informação :)
-            <br />
-            <br />
-            Humanamente falando sou viciado e fascinado na cultura remota e
-            flexibilidade de horário, também sou louco por agile (sério, aplico
-            isso em tudo!), liberdade, projetos (técnicos ou não! Afinal, a
-            escalada é importante mas a vista tb!) orientados a resultados,
-            tubarões (brancos em geral) e viajar.
-          </TextBlock>
-        </Content>
-        <SkillSet
-          theme={theme}
-          shouldExpand={shouldExpand}
-          darkMode={darkMode}
-        />
-      </Wrapper>
-    </Page>
+    <AppContext.Consumer>
+      {({ theme, darkMode, config: { skills } }) => (
+        <Page AppContext={AppContext}>
+          <Hero src={`${process.env.PUBLIC_URL}/imgs/wide-hero.jpg`} />
+          <Wrapper>
+            <Content width="50%" darkMode={darkMode}>
+              <Title theme={theme} darkMode={darkMode}>
+                SOBRE MIM
+              </Title>
+              <TextBlock theme={theme} darkMode={darkMode}>
+                Olá, Eu sou o Caio e que tal construirmos coisas legais? Sou um
+                engenheiro de software com sólidos conhecimentos no
+                desenvolvimento de aplicações web e mobile usando JavaScript.
+                <br />
+                <br />
+                Também tenho experiência na utilização tanto do paradigma de
+                orientação a objetos tanto quanto funcional, atuo também na
+                modelagem de databases relacionais e não relacionais além de
+                projetos de arquitetura da informação :)
+                <br />
+                <br />
+                Humanamente falando sou viciado e fascinado na cultura remota e
+                flexibilidade de horário, também sou louco por agile (sério,
+                aplico isso em tudo!), liberdade, projetos (técnicos ou não!
+                Afinal, a escalada é importante mas a vista tb!) orientados a
+                resultados, tubarões (brancos em geral) e viajar.
+              </TextBlock>
+            </Content>
+            <SkillSet
+              dataset={skills}
+              theme={theme}
+              shouldExpand={shouldExpand}
+              darkMode={darkMode}
+            />
+          </Wrapper>
+        </Page>
+      )}
+    </AppContext.Consumer>
   )
 }
 export default About

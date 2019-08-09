@@ -39,30 +39,34 @@ const Posts = styled.div(({ darkMode, theme }) => ({
   padding: '3rem'
 }))
 
-const PostWall = ({ data, theme, darkMode, isMobile }) => {
+const PostWall = ({ data, AppContext }) => {
   const latest = data[0] || {}
   const posts = data.slice(1)
 
   return (
-    <Wrapper>
-      {!isMobile && (
-        <>
-          <Latest theme={theme} darkMode={darkMode}>
-            <Post data={latest} theme={theme} darkMode={darkMode} latest />
-          </Latest>
-          <Posts theme={theme} darkMode={darkMode}>
-            {posts.map(post => (
-              <Post
-                data={post}
-                key={post.guid}
-                theme={theme}
-                darkMode={darkMode}
-              />
-            ))}
-          </Posts>
-        </>
+    <AppContext.Consumer>
+      {({ theme, darkMode, isMobile }) => (
+        <Wrapper>
+          {!isMobile && (
+            <>
+              <Latest theme={theme} darkMode={darkMode}>
+                <Post data={latest} theme={theme} darkMode={darkMode} latest />
+              </Latest>
+              <Posts theme={theme} darkMode={darkMode}>
+                {posts.map(post => (
+                  <Post
+                    data={post}
+                    key={post.guid}
+                    theme={theme}
+                    darkMode={darkMode}
+                  />
+                ))}
+              </Posts>
+            </>
+          )}
+        </Wrapper>
       )}
-    </Wrapper>
+    </AppContext.Consumer>
   )
 }
 

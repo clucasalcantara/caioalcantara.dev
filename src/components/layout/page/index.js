@@ -26,130 +26,109 @@ const Wrapper = styled.div(({ theme: { fontFamily } }) => ({
   fontFamily
 }))
 
-// TODO: Apply extra props one more level down
-// ow switch to context
-const applyExtraProps = (child, { theme, isMobile, darkMode, setDarkMode }) => {
-  return React.cloneElement(child, {
-    theme,
-    isMobile,
-    darkMode,
-    setDarkMode
-  })
-}
-
-function Page({
-  children,
-  theme,
-  config,
-  getParticles,
-  darkMode,
-  setDarkMode
-}) {
+function Page({ children, AppContext }) {
   const width = useWindowWidth()
   const isMobile = width <= 420
-  const childrenWithInjectedTheme = React.Children.map(children, child =>
-    child
-      ? applyExtraProps(child, {
-          theme,
-          isMobile,
-          darkMode,
-          setDarkMode
-        })
-      : null
+
+  const childrenWithInjectedContext = React.Children.map(children, child =>
+    child ? React.cloneElement(child, { AppContext }) : null
   )
 
   return (
-    <>
-      <Main>
-        <SideBar
-          isMobile={isMobile}
-          theme={theme}
-          config={config}
-          darkMode={darkMode}
-          setDarkMode={setDarkMode}
-        />
-        {!isMobile && (
-          <Wrapper theme={theme}>{childrenWithInjectedTheme}</Wrapper>
-        )}
-        <Global
-          styles={css`
-            @charset "utf-8";
+    <AppContext.Consumer>
+      {({ theme, config, getParticlesConfig, darkMode, setDarkMode }) => {
+        return (
+          <AppContext.Provider
+            value={{ theme, config, darkMode, setDarkMode, getParticlesConfig }}
+          >
+            <Main>
+              <SideBar AppContext={AppContext} />
+              {!isMobile && (
+                <Wrapper theme={theme}>{childrenWithInjectedContext}</Wrapper>
+              )}
+              <Global
+                styles={css`
+                  @charset "utf-8";
 
-            *,
-            ::after,
-            ::before {
-              box-sizing: border-box;
-            }
+                  *,
+                  ::after,
+                  ::before {
+                    box-sizing: border-box;
+                  }
 
-            html,
-            body {
-              width: 100%;
-              height: 100%;
-              background-color: ${darkMode
-                ? theme.colors.dark
-                : theme.colors.light};
-              transition: 1s ease;
-            }
+                  html,
+                  body {
+                    width: 100%;
+                    height: 100%;
+                    background-color: ${darkMode
+                      ? theme.colors.dark
+                      : theme.colors.light};
+                    transition: 1s ease;
+                  }
 
-            body {
-              font-family: ${theme.fontFamily}, sans-serif;
-              text-rendering: optimizeLegibility !important;
-              -webkit-font-smoothing: antialiased !important;
-            }
+                  body {
+                    font-family: ${theme.fontFamily}, sans-serif;
+                    text-rendering: optimizeLegibility !important;
+                    -webkit-font-smoothing: antialiased !important;
+                  }
 
-            strong {
-              font-weight: 800;
-            }
+                  strong {
+                    font-weight: 800;
+                  }
 
-            ::selection {
-              background: ${theme.colors.yellow}; /* WebKit/Blink Browsers */
-            }
+                  ::selection {
+                    background: ${theme.colors
+                      .yellow}; /* WebKit/Blink Browsers */
+                  }
 
-            ::-moz-selection {
-              background: ${theme.colors.yellow}; /* Gecko Browsers */
-            }
+                  ::-moz-selection {
+                    background: ${theme.colors.yellow}; /* Gecko Browsers */
+                  }
 
-            .react-toggle:hover {
-              border-radius: 30px;
-              background-color: ${theme.colors.light} !important;
-            }
+                  .react-toggle:hover {
+                    border-radius: 30px;
+                    background-color: ${theme.colors.light} !important;
+                  }
 
-            .react-toggle-track {
-              border: 2px solid #26282e;
-              background-color: ${theme.colors.light} !important;
-            }
+                  .react-toggle-track {
+                    border: 2px solid #26282e;
+                    background-color: ${theme.colors.light} !important;
+                  }
 
-            .react-toggle--checked:hover {
-              border-radius: 30px;
-              background-color: ${theme.colors.dark} !important;
-            }
+                  .react-toggle--checked:hover {
+                    border-radius: 30px;
+                    background-color: ${theme.colors.dark} !important;
+                  }
 
-            .react-toggle--checked .react-toggle-thumb {
-              border-color: transparent;
-            }
+                  .react-toggle--checked .react-toggle-thumb {
+                    border-color: transparent;
+                  }
 
-            .react-toggle--checked .react-toggle-track {
-              border-radius: 30px;
-              background-color: ${theme.colors.dark} !important;
-            }
-          `}
-        />
-      </Main>
-      {!isMobile && (
-        <Particles
-          style={{
-            position: 'absolute',
-            justifyContent: 'center',
-            alignItems: 'center',
-            top: 0,
-            left: 0,
-            zIndex: 1,
-            pointerEvents: 'none'
-          }}
-          params={getParticles(theme, darkMode)}
-        />
-      )}
-    </>
+                  .react-toggle--checked .react-toggle-track {
+                    border-radius: 30px;
+                    background-color: ${theme.colors.dark} !important;
+                  }
+                `}
+              />
+            </Main>
+            {!isMobile && (
+              <Particles
+                style={{
+                  position: 'absolute',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  top: 0,
+                  left: 0,
+                  zIndex: 1,
+                  pointerEvents: 'none'
+                }}
+                params={getParticlesConfig(theme, darkMode)}
+              />
+            )}
+          </AppContext.Provider>
+        )
+      }}
+    </AppContext.Consumer>
   )
 }
 

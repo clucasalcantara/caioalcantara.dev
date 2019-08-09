@@ -52,6 +52,19 @@ export function register(config) {
         registerValidSW(swUrl, config)
       }
     })
+
+    const filesToCache = ['../../../public/imgs/', '../../../public/fonts/']
+
+    const staticCacheName = 'caioalcantara'
+
+    window.addEventListener('install', event => {
+      console.log('Caching static assets')
+      event.waitUntil(
+        caches.open(staticCacheName).then(cache => {
+          return cache.addAll(filesToCache)
+        })
+      )
+    })
   }
 }
 

@@ -5,25 +5,17 @@ import { PostWall } from 'components/organisms'
 // Services
 import { getMediumFeed } from 'services'
 
-const Home = ({
-  baseContext: { config, theme, getParticles, darkMode, setDarkMode }
-}) => {
+const Home = ({ AppContext }) => {
   const [posts, setPosts] = useState([])
 
-  useMemo(() => {
-    getMediumFeed('clucasalcantara').then(({ items }) =>
-      setPosts(items.filter(post => post.categories.length))
-    )
+  useMemo(async () => {
+    const { items } = await getMediumFeed('clucasalcantara')
+
+    setPosts(items)
   }, [])
 
   return (
-    <Page
-      theme={theme}
-      config={config}
-      getParticles={getParticles}
-      setDarkMode={setDarkMode}
-      darkMode={darkMode}
-    >
+    <Page AppContext={AppContext}>
       <PostWall data={posts} />
     </Page>
   )

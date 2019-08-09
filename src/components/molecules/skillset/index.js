@@ -1,60 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-const SKILLS = [
-  {
-    id: 0,
-    skill: 'JavaScript',
-    level: '99%'
-  },
-  {
-    id: 1,
-    skill: 'NodeJS',
-    level: '80%'
-  },
-  {
-    id: 2,
-    skill: 'Go',
-    level: '60%'
-  },
-  {
-    id: 3,
-    skill: 'React',
-    level: '99%'
-  },
-  {
-    id: 4,
-    skill: 'React Native',
-    level: '99%'
-  },
-  {
-    id: 5,
-    skill: 'Styled Components',
-    level: '90%'
-  },
-
-  {
-    id: 6,
-    skill: 'Microservices',
-    level: '80%'
-  },
-  {
-    id: 7,
-    skill: 'GraphQL',
-    level: '75%'
-  },
-  {
-    id: 8,
-    skill: 'NoSQL',
-    level: '80%'
-  },
-  {
-    id: 9,
-    skill: 'DevOps (CI/CD, Docker, Jenkins, Rancher)',
-    level: '60%'
-  }
-]
-
 const Wrapper = styled.div(({ width }) => ({
   padding: 10,
   width
@@ -69,7 +15,7 @@ const SkillBar = styled.div(
       ? `linear-gradient(to right, ${colors.yellow}, ${colors.darkYellow})`
       : colors.dark,
     color: darkMode ? colors.dark : colors.light,
-    transition: '.5s ease'
+    transition: '.8s ease'
   })
 )
 
@@ -99,12 +45,12 @@ const Level = styled.span(({ expand }) => ({
   opacity: expand ? 1 : 0
 }))
 
-export default ({ theme, shouldExpand, darkMode }) => (
+export default ({ theme, shouldExpand, darkMode, dataset }) => (
   <Wrapper width="50%">
     <Title theme={theme} darkMode={darkMode}>
       SKILLS
     </Title>
-    {SKILLS.map(({ level, id, skill }) => (
+    {dataset.map(({ level, id, skill }) => (
       <SkillBar
         key={id}
         theme={theme}

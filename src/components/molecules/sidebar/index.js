@@ -23,7 +23,7 @@ const Wrapper = styled.aside(({ theme: { colors }, darkMode, isMobile }) => ({
   flexDirection: 'column',
   justifyContent: 'space-between',
   backgroundColor: darkMode ? colors.yellow : colors.dark,
-  transition: '1s ease'
+  transition: '1s ease-in'
 }))
 
 const Copyright = styled.span({
@@ -36,29 +36,27 @@ const Footer = styled.div(({ darkMode, theme: { colors } }) => ({
   color: darkMode ? colors.dark : colors.light
 }))
 
-const SideBar = ({
-  theme,
-  config: { nav, social },
-  darkMode,
-  setDarkMode,
-  isMobile
-}) => (
-  <Wrapper theme={theme} darkMode={darkMode} isMobile={isMobile}>
-    <Logo theme={theme} darkMode={darkMode} isMobile={isMobile} />
-    <Navigation
-      isMobile={isMobile}
-      navItems={nav}
-      theme={theme}
-      darkMode={darkMode}
-    />
-    <Footer theme={theme} darkMode={darkMode}>
-      <DarkMode darkMode={darkMode} setDarkMode={setDarkMode} />
-      <SocialElements darkMode={darkMode} theme={theme} accounts={social} />
-      <Copyright className="copyright">
-        © 2019 Todos os direitos reservados
-      </Copyright>
-    </Footer>
-  </Wrapper>
+const SideBar = ({ AppContext }) => (
+  <AppContext.Consumer>
+    {({ theme, config: { nav, social }, darkMode, setDarkMode, isMobile }) => (
+      <Wrapper theme={theme} darkMode={darkMode} isMobile={isMobile}>
+        <Logo theme={theme} darkMode={darkMode} isMobile={isMobile} />
+        <Navigation
+          isMobile={isMobile}
+          navItems={nav}
+          theme={theme}
+          darkMode={darkMode}
+        />
+        <Footer theme={theme} darkMode={darkMode}>
+          <DarkMode darkMode={darkMode} setDarkMode={setDarkMode} />
+          <SocialElements darkMode={darkMode} theme={theme} accounts={social} />
+          <Copyright className="copyright">
+            © 2019 Todos os direitos reservados
+          </Copyright>
+        </Footer>
+      </Wrapper>
+    )}
+  </AppContext.Consumer>
 )
 
 SideBar.propTypes = {}
