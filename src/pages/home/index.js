@@ -8,10 +8,8 @@ import { getMediumFeed } from 'services'
 const Home = ({ AppContext }) => {
   const [posts, setPosts] = useState([])
 
-  useMemo(async () => {
-    const { items } = await getMediumFeed('clucasalcantara')
-
-    setPosts(items)
+  useMemo(() => {
+    getMediumFeed('clucasalcantara').then(({ items }) => setPosts(items))
   }, [])
 
   return (
