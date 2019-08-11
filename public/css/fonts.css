@@ -1,4 +1,5 @@
 @font-face {
+  font-display: auto;
   font-family: 'Bio Sans';
   src: url('../fonts/BioSans-Light.eot');
   src: url('../fonts/BioSans-Light.eot?#iefix') format('embedded-opentype'),
@@ -11,6 +12,7 @@
 }
 
 @font-face {
+  font-display: auto;
   font-family: 'Bio Sans';
   src: url('../fonts/BioSans-ExtraBold.eot');
   src: url('../fonts/BioSans-ExtraBold.eot?#iefix') format('embedded-opentype'),
@@ -23,6 +25,7 @@
 }
 
 @font-face {
+  font-display: auto;
   font-family: 'Bio Sans';
   src: url('../fonts/BioSans-Italic.eot');
   src: url('../fonts/BioSans-Italic.eot?#iefix') format('embedded-opentype'),
@@ -35,6 +38,7 @@
 }
 
 @font-face {
+  font-display: auto;
   font-family: 'Bio Sans';
   src: url('../fonts/BioSans-Bold.eot');
   src: url('../fonts/BioSans-Bold.eot?#iefix') format('embedded-opentype'),
@@ -47,6 +51,7 @@
 }
 
 @font-face {
+  font-display: auto;
   font-family: 'Bio Sans';
   src: url('../fonts/BioSans-SemiBold.eot');
   src: url('../fonts/BioSans-SemiBold.eot?#iefix') format('embedded-opentype'),
@@ -59,6 +64,7 @@
 }
 
 @font-face {
+  font-display: auto;
   font-family: 'Bio Sans';
   src: url('../fonts/BioSans-Regular.eot');
   src: url('../fonts/BioSans-Regular.eot?#iefix') format('embedded-opentype'),
