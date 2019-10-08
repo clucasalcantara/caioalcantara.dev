@@ -1,5 +1,5 @@
 /**
- * PostWall Component
+ * CardWall Component
  * @memberof components/organisms
  */
 import React from 'react'
@@ -30,7 +30,7 @@ const Latest = styled.article(({ darkMode, theme }) => ({
   }
 }))
 
-const Posts = styled.div(({ darkMode, theme }) => ({
+const Cards = styled.div(({ darkMode, theme }) => ({
   display: 'flex',
   justifyContent: 'center',
   flexWrap: 'wrap',
@@ -39,21 +39,21 @@ const Posts = styled.div(({ darkMode, theme }) => ({
   padding: '3rem'
 }))
 
-const PostWall = ({ data, AppContext }) => {
+const CardWall = ({ data, AppContext, type }) => {
   const latest = data[0] || {}
-  const posts = data.slice(1)
+  const dataset = type !== 'projects' ? data.slice(1) : data
 
   return (
     <AppContext.Consumer>
       {({ theme, darkMode, isMobile }) => (
         <Wrapper>
-          {!isMobile && (
+          {type !== 'projects' && !isMobile ? (
             <>
               <Latest theme={theme} darkMode={darkMode}>
                 <Post data={latest} theme={theme} darkMode={darkMode} latest />
               </Latest>
-              <Posts theme={theme} darkMode={darkMode}>
-                {posts.map(post => (
+              <Cards theme={theme} darkMode={darkMode}>
+                {dataset.map(post => (
                   <Post
                     data={post}
                     key={post.guid}
@@ -61,8 +61,15 @@ const PostWall = ({ data, AppContext }) => {
                     darkMode={darkMode}
                   />
                 ))}
-              </Posts>
+              </Cards>
             </>
+          ) : null}
+          {type === 'projects' && (
+            <Cards theme={theme} darkMode={darkMode}>
+              {dataset.map(item => (
+                <Post data={item} theme={theme} darkMode={darkMode} />
+              ))}
+            </Cards>
           )}
         </Wrapper>
       )}
@@ -70,4 +77,4 @@ const PostWall = ({ data, AppContext }) => {
   )
 }
 
-export default PostWall
+export default CardWall

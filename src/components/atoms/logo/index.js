@@ -27,7 +27,7 @@ const Headline = styled.span(({ theme: { colors }, darkMode, isMobile }) => ({
   display: 'block',
   fontWeight: 'bold',
   color: darkMode ? colors.dark : colors.light,
-  fontSize: isMobile ? '1.65rem' : '1.9rem',
+  fontSize: isMobile ? '1.65rem' : '1.7rem',
   textAlign: 'start'
 }))
 

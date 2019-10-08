@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react'
 // UI Elements
 import { Page } from 'components/layout'
-import { PostWall } from 'components/organisms'
+import { CardWall } from 'components/organisms'
 // Services
 import { getMediumFeed } from 'services'
 
@@ -14,7 +14,7 @@ const Home = ({ AppContext }) => {
 
   return (
     <Page AppContext={AppContext}>
-      <PostWall data={posts} />
+      <CardWall data={posts} />
     </Page>
   )
 }

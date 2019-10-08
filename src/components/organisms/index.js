@@ -1,4 +1,4 @@
 import CardList from './card-list'
-import PostWall from './post-wall'
+import CardWall from './card-wall'
 
-export { CardList, PostWall }
+export { CardList, CardWall }

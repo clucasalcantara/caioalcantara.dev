@@ -1,6 +1,7 @@
 const initialState = {
   config: {
     name: 'caioalcantara',
+    github_username: 'clucasalcantara',
     metas: {
       title: 'Caio Alcantara - Software Engineer',
       description: 'Personal blog page and website',
@@ -62,27 +63,27 @@ const initialState = {
     ],
     nav: [
       {
-        id: 'home-itrem',
+        id: 'home-item',
         text: 'HOME',
         path: '/'
       },
       {
-        id: 'about-itrem',
+        id: 'about-item',
         text: 'SOBRE MIM',
         path: '/about'
       },
       {
-        id: 'projects-itrem',
+        id: 'projects-item',
         text: 'PROJETOS',
-        path: '#'
+        path: '/projects'
       },
       {
-        id: 'posts-itrem',
+        id: 'posts-item',
         text: 'Posts',
         path: '#'
       },
       {
-        id: 'contact-itrem',
+        id: 'contact-item',
         text: 'Contato',
         path: '#'
       }
